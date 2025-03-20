@@ -17,7 +17,7 @@ pub enum Transaction {
 }
 
 impl Wallet {
-    fn new(seed: String) -> Result<Self, String> {
+    pub fn new(seed: String) -> Result<Self, String> {
         let bytes_array_seed = match hex::decode(seed) {
             Ok(seed_arr) => seed_arr,
             Err(_) => return Err(String::from("Rekt"))
@@ -44,7 +44,7 @@ impl Wallet {
         })
     }
 
-    fn sign_message(mut self, message: String) ->  Result<schnorr::Signature, String> {
+    pub fn sign_message(mut self, message: String) ->  Result<schnorr::Signature, String> {
         let message_bytes = match hex::decode(message) {
             Ok(res) => res,
             Err(_) => return Err(String::from("rekt"))
@@ -53,7 +53,7 @@ impl Wallet {
         Ok(self.private_key.sign(&message_bytes))
     }
 
-    fn get_wallet(public_key: String) -> Self {
+    pub fn get_wallet(public_key: String) -> Self {
         todo!();
     }
 }
