@@ -11,8 +11,9 @@ mod tests {
             String::from("098413"),
             String::from("429387"),
             val,
-            0,
             30,
+            0,
+            123,
             String::from("902384"),
             String::from("")
         );
