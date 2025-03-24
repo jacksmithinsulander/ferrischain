@@ -12,6 +12,7 @@
 /// - 'timestamp': Timestamp where the transaction was sent to the mempool
 /// - 'hash': All information of this transaction, hashed together
 /// - 'message': An optional message field that the payee can use to write something fun to the recipient
+#[derive(Clone)]
 pub struct Transaction {
     pub payee: String,
     pub recipient: String,

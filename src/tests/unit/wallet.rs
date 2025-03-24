@@ -7,7 +7,7 @@ mod tests {
 
     #[test]
     fn test_wallet() {
-        let seed = String::from("Hey");
+        let seed = String::from("Heyy");
         let wallet = match Wallet::new(seed) {
             Ok(w) => w,
             Err(_) => panic!()
@@ -15,8 +15,12 @@ mod tests {
 
         let my_message = String::from("wazzup");
 
-        let signature = wallet.sign_message(my_message).unwrap();
+        let signature = wallet.clone().sign_message(my_message.clone()).unwrap();
 
-        println!("{:?}", signature);
+        println!("Signature: {:?}", signature);
+
+        let res = wallet.verify_message(my_message, signature);
+
+        println!("Result: {:?}", res)
     }
 }
